@@ -17,10 +17,12 @@ func _input(event):
 	
 	if Input.is_action_pressed("right"):
 		direction.x += speed
-
+		$PlayerAnim.flip_h = false
+		
+		
 	if Input.is_action_pressed("left"):
 		direction.x -= speed
-		
+		$PlayerAnim.flip_h = true
 
 
 func _process(delta):

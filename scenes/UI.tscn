@@ -15,3 +15,13 @@ margin_right = -490.5
 margin_bottom = -586.0
 rect_scale = Vector2( 2, 2 )
 text = "Gold :"
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="TimerLabel" type="Label" parent="."]
+margin_right = 40.0
+margin_bottom = 14.0
+rect_scale = Vector2( 2, 2 )
+text = "Time:"
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

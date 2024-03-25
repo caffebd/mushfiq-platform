@@ -18,7 +18,10 @@ func _input(event):
 	if Input.is_action_pressed("right"):
 		direction.x += speed
 
-#	NEED MOVE LEFT CODE
+	if Input.is_action_pressed("left"):
+		direction.x -= speed
+		
+
 
 func _process(delta):
 	

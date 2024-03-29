@@ -19,9 +19,24 @@ text = "Gold :"
 [node name="Timer" type="Timer" parent="."]
 
 [node name="TimerLabel" type="Label" parent="."]
-margin_right = 40.0
-margin_bottom = 14.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -984.0
+margin_bottom = -586.0
 rect_scale = Vector2( 2, 2 )
 text = "Time:"
 
+[node name="Power_Lable" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 927.0
+margin_right = -57.0
+margin_bottom = -586.0
+rect_scale = Vector2( 2, 2 )
+text = "PFT:"
+
+[node name="Power_Timer" type="Timer" parent="."]
+autostart = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="Power_Timer" to="." method="_on_Power_Timer_timeout"]

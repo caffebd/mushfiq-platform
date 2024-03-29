@@ -2,11 +2,15 @@ extends Control
 
 var score_count = 0
 
+var Power_time = 10 
+
 var countDown_timer = 30
 
 func _ready():
 	GlobalSignal.connect("change_score" , self, "_change_score")
 	$Timer.start()
+	GlobalSignal.connect("power_up" , self, "_change_score")
+	$Power_Timer.start()
 
 
 
@@ -18,6 +22,11 @@ func _change_score():
 
 
 
+func _on_Power_Timer_timeout():
+	Power_time -= 1
+	$Power_Lable.text = "PFT :" +str(Power_time)
+	if Power_time == 0:
+		$Power_Timer.stop()
 
 
 

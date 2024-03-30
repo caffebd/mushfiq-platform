@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 export var speed = 250
 
-var velocity = 0
+
 
 export var jump_speed = -450
 var gravity = 900
@@ -21,6 +21,11 @@ func _input(event):
 		direction.x += speed
 		$PlayerAnim.flip_h = false
 		
+	if Input.is_action_pressed("jump"):
+		direction.y -= speed
+		
+	if Input.is_action_pressed("down"):
+		direction.y += speed
 		
 	if Input.is_action_pressed("left"):
 		direction.x -= speed
@@ -32,20 +37,13 @@ func _input(event):
 func _process(delta):
 	
 	direction.y += gravity * delta
-	if Input.is_action_just_pressed("jump"):
-		if is_on_floor():
-			direction.y = jump_speed	
+#	if Input.is_action_just_pressed("jump"):
+#		if is_on_floor():
+#			direction.y = jump_speed	
 
 	direction = move_and_slide(direction,  Vector2.UP)
  
 func _power_up():
-	gravity = 0
-	velocity = 0
-	if Input.is_action_pressed("jump"):
-		direction.y -= speed
-		$PlayerAnim.flip_h = true
-		
-	if Input.is_action_pressed("down"):
-		direction.y += speed
-		$PlayerAnim.flip_h = false
+	pass
+
 

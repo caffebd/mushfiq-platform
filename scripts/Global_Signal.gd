@@ -1,10 +1,10 @@
 extends Node
 
 
-signal change_score
+signal change_score()
 
 
-signal power_up
+signal power_up()
 
 
 

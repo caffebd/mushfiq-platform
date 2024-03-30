@@ -9,9 +9,11 @@ var countDown_timer = 30
 func _ready():
 	GlobalSignal.connect("change_score" , self, "_change_score")
 	$Timer.start()
-	GlobalSignal.connect("power_up" , self, "_change_score")
-	$Power_Timer.start()
+	GlobalSignal.connect("power_up" , self, "_power_up")
+	
 
+func _power_up():
+	$Power_Timer.start()
 
 
 
@@ -37,3 +39,6 @@ func _on_Timer_timeout():
 	$TimerLabel.text = "Time :" +str(countDown_timer)
 	if countDown_timer == 0:
 		$Timer.stop()
+  
+
+

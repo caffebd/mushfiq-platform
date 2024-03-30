@@ -36,7 +36,6 @@ rect_scale = Vector2( 2, 2 )
 text = "PFT:"
 
 [node name="Power_Timer" type="Timer" parent="."]
-autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="Power_Timer" to="." method="_on_Power_Timer_timeout"]

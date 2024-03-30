@@ -2,6 +2,8 @@ extends KinematicBody2D
 
 export var speed = 250
 
+var velocity = 0
+
 export var jump_speed = -450
 var gravity = 900
 
@@ -9,7 +11,7 @@ var direction := Vector2.ZERO
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	GlobalSignal.connect("power_up" , self, "_power_up")
 
 func _input(event):
 	
@@ -25,6 +27,8 @@ func _input(event):
 		$PlayerAnim.flip_h = true
 
 
+
+
 func _process(delta):
 	
 	direction.y += gravity * delta
@@ -33,4 +37,15 @@ func _process(delta):
 			direction.y = jump_speed	
 
 	direction = move_and_slide(direction,  Vector2.UP)
+ 
+func _power_up():
+	gravity = 0
+	velocity = 0
+	if Input.is_action_pressed("jump"):
+		direction.y -= speed
+		$PlayerAnim.flip_h = true
+		
+	if Input.is_action_pressed("down"):
+		direction.y += speed
+		$PlayerAnim.flip_h = false
 

@@ -14,7 +14,8 @@ func _ready():
 
 func _power_up():
 	$Power_Timer.start()
-
+	$Power_Lable .text = ""+str(Power_time)
+	
 
 
 
@@ -23,7 +24,8 @@ func _change_score():
 	$Label.text = "Gold :" + str(score_count)
 
 
-
+	
+	
 func _on_Power_Timer_timeout():
 	Power_time -= 1
 	$Power_Lable.text = "PFT :" +str(Power_time)
@@ -38,7 +40,6 @@ func _on_Timer_timeout():
 	countDown_timer -= 1
 	$TimerLabel.text = "Time :" +str(countDown_timer)
 	if countDown_timer == 0:
-		$Timer.stop()
-  
+		$Timer.stop()  
 
 

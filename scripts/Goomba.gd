@@ -6,6 +6,13 @@ var walk_speed = 100
 
 var direction = Vector2.ZERO
 
+export var walk_time = 3
+
+
+func _ready():
+	$WalkTimer.wait_time = walk_time
+
+
 
 func _process(delta):
 	direction.y += GRAVITY * delta
@@ -16,7 +23,7 @@ func _process(delta):
 	direction = move_and_slide(direction  ,  Vector2.UP)
 
 
-func _ready():
-	pass # Replace with function body.
 
 
+func _on_WalkTimer_timeout():
+	walk_speed *= -1

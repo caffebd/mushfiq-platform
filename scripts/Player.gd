@@ -9,10 +9,17 @@ var gravity = 900
 
 var direction := Vector2.ZERO
 
+var pushed = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	GlobalSignal.connect("power_up" , self, "_power_up")
-
+	GlobalSignal.connect("push_up" , self, "_push_up")
+	
+func _push_up():
+	pushed = true
+	
+	
 func _input(event):
 	
 	direction.x = 0
@@ -43,6 +50,10 @@ func _process(delta):
 		if is_on_floor() and not GlobalVars.can_fly:
 			direction.y = jump_speed	
 
+	if pushed:
+		direction.y = jump_speed/2
+		pushed = false
+	
 	direction = move_and_slide(direction,  Vector2.UP)
  
 func _power_up():

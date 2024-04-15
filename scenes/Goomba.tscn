@@ -7,10 +7,10 @@
 radius = 18.1108
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 20, 10.5 )
+extents = Vector2( 28, 10.5 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 28, 14.5 )
+extents = Vector2( 20, 9.25 )
 
 [node name="Goomba" type="KinematicBody2D"]
 script = ExtResource( 2 )
@@ -25,13 +25,13 @@ shape = SubResource( 1 )
 [node name="KillArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillArea"]
-position = Vector2( -1, -15.5 )
+position = Vector2( 0, 13 )
 shape = SubResource( 3 )
 
 [node name="DieArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DieArea"]
-position = Vector2( 1, 10.5 )
+position = Vector2( 0, -17.75 )
 shape = SubResource( 2 )
 
 [node name="WalkTimer" type="Timer" parent="."]

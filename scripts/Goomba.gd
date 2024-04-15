@@ -36,4 +36,5 @@ func _on_KillArea_body_entered(body):
 
 func _on_DieArea_body_entered(body):
 	if body.is_in_group("player"):
+		GlobalSignal.emit_signal("push_up")
 		queue_free()

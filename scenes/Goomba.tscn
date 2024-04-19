@@ -4,34 +4,36 @@
 [ext_resource path="res://scripts/Goomba.gd" type="Script" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 18.1108
+radius = 13.0
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 28, 10.5 )
+extents = Vector2( 24, 9.75 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 20, 9.25 )
+extents = Vector2( 18.5, 7.25 )
 
 [node name="Goomba" type="KinematicBody2D"]
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, 9.53674e-07 )
+scale = Vector2( 0.767857, 0.801887 )
 texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -1, 6 )
+position = Vector2( 0, 1 )
 shape = SubResource( 1 )
 
 [node name="KillArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillArea"]
-position = Vector2( 0, 13 )
+position = Vector2( 0, 11 )
 shape = SubResource( 3 )
 
 [node name="DieArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DieArea"]
-position = Vector2( 0, -17.75 )
+position = Vector2( 0, -14 )
 shape = SubResource( 2 )
 
 [node name="WalkTimer" type="Timer" parent="."]

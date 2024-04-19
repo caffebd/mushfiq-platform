@@ -1,0 +1,67 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/TilesWorld.gd" type="Script" id=2]
+[ext_resource path="res://Tilesets/TilesWorld.tres" type="TileSet" id=3]
+[ext_resource path="res://scenes/Goomba.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/Score.tscn" type="PackedScene" id=5]
+
+[node name="TilesWorld" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="BackGround" type="TileMap" parent="."]
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( 5, 2, 0, 65554, 2, 0, 327682, 2, 0, 327697, 2, 0, 589844, 2, 0 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( 29, 0, 0, 65546, 1, 0, 65565, 0, 0, 196605, 0, 0, 131075, 0, 0, 131094, 0, 0, 131096, 0, 0, 131101, 0, 0, 262141, 1, 0, 196608, 1, 0, 196609, 1, 0, 196625, 1, 0, 196630, 0, 0, 196632, 1, 0, 196635, 1, 0, 327674, 0, 0, 262150, 1, 0, 262166, 0, 0, 327702, 0, 0, 393216, 0, 0, 393226, 1, 0, 393238, 1, 0, 524282, 1, 0, 458752, 1, 0, 458755, 1, 0, 524305, 1, 0, 524309, 1, 0, 720891, 1, 0, 655368, 0, 0, 655371, 0, 0, 720904, 1, 0, 720907, 1, 0, 720910, 1, 0, 720915, 0, 0, 851966, 0, 0, 786434, 0, 0, 917502, 1, 0, 851968, 1, 0, 851987, 0, 0, 851990, 1, 0, 917518, 1, 0, 917521, 1, 0, 983043, 0, 0, 983052, 0, 0, 1048579, 1, 0, 1048582, 1, 0, 1048584, 1, 0, 1048586, 1, 0 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 430, 304 )
+
+[node name="Goomba" parent="." instance=ExtResource( 4 )]
+position = Vector2( 311, 329 )
+
+[node name="Goomba4" parent="." instance=ExtResource( 4 )]
+position = Vector2( 311, 329 )
+
+[node name="Goomba5" parent="." instance=ExtResource( 4 )]
+position = Vector2( -14, 388 )
+
+[node name="Goomba6" parent="." instance=ExtResource( 4 )]
+position = Vector2( 152, 484 )
+
+[node name="Goomba2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 818, 67 )
+
+[node name="Goomba3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 24, 72 )
+
+[node name="Score" parent="." instance=ExtResource( 5 )]
+position = Vector2( 506, 321 )
+
+[node name="Score7" parent="." instance=ExtResource( 5 )]
+position = Vector2( 38, 393 )
+
+[node name="Score8" parent="." instance=ExtResource( 5 )]
+position = Vector2( 229, 481 )
+
+[node name="Score4" parent="." instance=ExtResource( 5 )]
+position = Vector2( 564, 68 )
+
+[node name="Score5" parent="." instance=ExtResource( 5 )]
+position = Vector2( 618, 232 )
+
+[node name="Score6" parent="." instance=ExtResource( 5 )]
+position = Vector2( 907, 68 )
+
+[node name="Score2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 140, 205 )
+
+[node name="Score3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 62, 77 )

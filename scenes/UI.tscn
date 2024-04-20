@@ -1,6 +1,19 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scripts/UI.gd" type="Script" id=1]
+[ext_resource path="res://assets/props/Comfortaa-VariableFont_wght.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 50
+outline_color = Color( 0.207843, 0.152941, 0.796078, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.580392, 0.313726, 0.313726, 1 )
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
 
 [node name="UI" type="Control"]
 anchor_right = 1.0
@@ -36,6 +49,18 @@ rect_scale = Vector2( 2, 2 )
 text = "PFT:"
 
 [node name="Power_Timer" type="Timer" parent="."]
+
+[node name="SignText" type="RichTextLabel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 314.5
+margin_top = 250.5
+margin_right = -314.5
+margin_bottom = -250.5
+rect_min_size = Vector2( 300, 80 )
+custom_fonts/normal_font = SubResource( 1 )
+custom_styles/normal = SubResource( 2 )
+text = "Sign text here"
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="Power_Timer" to="." method="_on_Power_Timer_timeout"]

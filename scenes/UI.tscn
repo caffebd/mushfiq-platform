@@ -4,7 +4,7 @@
 [ext_resource path="res://assets/props/Comfortaa-VariableFont_wght.ttf" type="DynamicFontData" id=2]
 
 [sub_resource type="DynamicFont" id=1]
-size = 50
+size = 32
 outline_color = Color( 0.207843, 0.152941, 0.796078, 1 )
 font_data = ExtResource( 2 )
 

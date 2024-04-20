@@ -24,6 +24,7 @@ tile_data = PoolIntArray( 29, 0, 0, 65546, 1, 0, 65565, 0, 0, 196605, 0, 0, 1310
 
 [node name="Sign" parent="." instance=ExtResource( 6 )]
 position = Vector2( 342, 477 )
+sign_text = "hello"
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 430, 304 )

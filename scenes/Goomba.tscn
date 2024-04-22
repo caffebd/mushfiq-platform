@@ -31,6 +31,8 @@ position = Vector2( 0, 11 )
 shape = SubResource( 3 )
 
 [node name="DieArea" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DieArea"]
 position = Vector2( 0, -14 )
@@ -41,5 +43,6 @@ wait_time = 2.0
 autostart = true
 
 [connection signal="body_entered" from="KillArea" to="." method="_on_KillArea_body_entered"]
+[connection signal="area_entered" from="DieArea" to="." method="_on_DieArea_area_entered"]
 [connection signal="body_entered" from="DieArea" to="." method="_on_DieArea_body_entered"]
 [connection signal="timeout" from="WalkTimer" to="." method="_on_WalkTimer_timeout"]

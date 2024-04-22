@@ -37,8 +37,8 @@ func _input(event):
 			direction.y -= speed
 		if Input.is_action_pressed("down"):
 			direction.y += speed
-		if Input.is_action_just_pressed("send_ufo"):
-			GlobalSignal.emit_signal("ufo_attack")
+	if Input.is_action_just_pressed("send_ufo"):
+		GlobalSignal.emit_signal("ufo_attack")
 
 
 

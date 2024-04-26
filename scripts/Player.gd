@@ -47,8 +47,12 @@ func _input(event):
 func _process(delta):
 	
 	direction.y += gravity * delta
+	
+	var is_geounded = $RayCast2D.is_colliding()
+	
+	
 	if Input.is_action_just_pressed("jump"):
-		if is_on_floor() and not GlobalVars.can_fly:
+		if is_geounded and not GlobalVars.can_fly:
 			direction.y = jump_speed	
 
 	if pushed:

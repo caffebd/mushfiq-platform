@@ -29,7 +29,7 @@ position = Vector2( 462, 312 )
 sign_text = "WASD to move"
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 430, 304 )
+position = Vector2( -163, 194 )
 
 [node name="enemies" type="Node2D" parent="."]
 position = Vector2( 311, 329 )

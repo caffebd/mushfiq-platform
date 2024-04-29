@@ -46,3 +46,19 @@ func _on_DieArea_area_entered(area):
 	if area.is_in_group("ufo"):
 		GlobalSignal.emit_signal("ufo_return")
 		queue_free()
+		
+		
+	if area.is_in_group("player_weapon"):
+		queue_free()
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		

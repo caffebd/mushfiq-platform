@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 export var speed = 250
 
-
+var attacking = false
 
 export var jump_speed = -450
 var gravity = 900
@@ -26,20 +26,36 @@ func _input(event):
 	
 	if Input.is_action_pressed("right"):
 		direction.x += speed
+		$AttackNode.scale.x = 1
 		$PlayerAnim.flip_h = false
-		
-	if Input.is_action_pressed("left"):
+		if not attacking:
+			$PlayerAnim.play("walk")
+			
+			
+	elif Input.is_action_pressed("left"):
 		direction.x -= speed
+		$AttackNode.scale.x = -1
 		$PlayerAnim.flip_h = true
+		if not attacking:
+			$PlayerAnim.play("walk")
+	
+	else:
+		if not attacking:
+			$PlayerAnim.play("idle")
+		
 	if GlobalVars.can_fly == true:
 		direction.y = 0
+		
 		if Input.is_action_pressed("jump"):
 			direction.y -= speed
+			
 		if Input.is_action_pressed("down"):
 			direction.y += speed
+			
 	if Input.is_action_just_pressed("send_ufo"):
 		GlobalSignal.emit_signal("ufo_attack")
-
+	#else:
+		#
 
 
 
@@ -54,7 +70,15 @@ func _process(delta):
 	if Input.is_action_just_pressed("jump"):
 		if is_geounded and not GlobalVars.can_fly:
 			direction.y = jump_speed	
-
+	
+	if Input.is_action_just_pressed("attack"):
+		attacking = true
+		$PlayerAnim.set_frame(0)
+		$PlayerAnim.play("attack")
+			
+		$AttackNode/AttackArea/AttackCollisionShape2D.disabled = false
+		
+		
 	if pushed:
 		direction.y = jump_speed/2
 		pushed = false
@@ -66,3 +90,9 @@ func _power_up():
 	GlobalVars.can_fly = true
 
 
+
+
+func _on_PlayerAnim_animation_finished():
+	if $PlayerAnim.animation == "attack":
+		attacking = false
+		$AttackNode/AttackArea/AttackCollisionShape2D.disabled = true

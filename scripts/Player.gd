@@ -4,8 +4,11 @@ export var speed = 250
 
 var attacking = false
 
-export var jump_speed = -450
+export var jump_speed = -500
 var gravity = 900
+
+
+var used_portal = false
 
 var direction := Vector2.ZERO
 
@@ -15,6 +18,7 @@ var pushed = false
 func _ready():
 	GlobalSignal.connect("power_up" , self, "_power_up")
 	GlobalSignal.connect("push_up" , self, "_push_up")
+	GlobalSignal.connect("use_portal", self, "_use_portal")
 	
 func _push_up():
 	pushed = true
@@ -89,10 +93,25 @@ func _power_up():
 	gravity = 0
 	GlobalVars.can_fly = true
 
-
+func _use_portal(new_position):
+	direction = Vector2.ZERO
+	visible = false
+	call_deferred("_collision_off")
+	var tween = create_tween()
+	tween.tween_property(self, "global_position", new_position, 1.0)
+	yield (tween, "finished")
+	call_deferred("_collision_on")
+	visible = true
 
 
 func _on_PlayerAnim_animation_finished():
 	if $PlayerAnim.animation == "attack":
 		attacking = false
 		$AttackNode/AttackArea/AttackCollisionShape2D.disabled = true
+
+func _collision_on():
+	$PlayerCollision.disabled = false
+
+func _collision_off():
+	$AttackNode/AttackArea/AttackCollisionShape2D.disabled= true
+	$PlayerCollision.disabled = true

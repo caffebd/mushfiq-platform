@@ -3,6 +3,7 @@ extends Node
 
 signal change_score()
 
+signal use_portal(new_position)
 
 signal power_up()
 
